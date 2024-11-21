@@ -146,13 +146,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 300, // Adjust the height as needed
                 child: Image.asset('logo.png'), // Your logo asset
               ),
-
-            const Text(
-              'ShoeHub',style: TextStyle(fontFamily: 'Poppins', fontSize: 24),
-            ),
-              const Padding(
-                padding: EdgeInsets.all(16.0)
-              ),
               Padding(
                 padding: const EdgeInsets.all(30.0), // Adjust the value as needed
                 child: TextField(
