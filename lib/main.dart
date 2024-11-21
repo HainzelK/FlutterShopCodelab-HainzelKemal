@@ -154,21 +154,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.all(16.0)
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0), // Adjust the value as needed
+                padding: const EdgeInsets.all(30.0), // Adjust the value as needed
                 child: TextField(
                   controller: _usernameController,
                   decoration: const InputDecoration(labelText: 'Username'),
                 ),
               ),
 
-            // [Password] 
-
-                
-               const Padding(
-                padding: const EdgeInsets.all(16.0)
-              ),
+            // [Password]
               Padding(
-                padding: const EdgeInsets.all(16.0), // Adjust the value as needed
+                padding: const EdgeInsets.all(30.0), // Adjust the value as needed
                 child: TextField(
                   controller: _passwordController,
                   decoration: const InputDecoration(labelText: 'Password'),
@@ -185,6 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: MainAxisAlignment.end,
                 // TODO: Add a beveled rectangular border to CANCEL (103)
                 children: <Widget>[
+                
                   // TODO: Add buttons (101)
                                     // TODO: Add buttons (101)
               TextButton(
