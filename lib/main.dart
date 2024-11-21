@@ -38,7 +38,7 @@ ThemeData _buildHubTheme() {
   return base.copyWith(
     colorScheme: base.colorScheme.copyWith(
       primary: kuning,
-      onPrimary: kShrineBrown900,
+      onPrimary: hitam,
       secondary: hitam,
       error: error,
     ),
