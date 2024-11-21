@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'productdetail.dart'; // Import the new product detail page
+import 'productdetail.dart'; 
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  // Product model
   final List<Map<String, dynamic>> products = [
     {'image': 'nike1.jpg', 'title': 'Nike Air Max', 'subtitle': 'Price: \$120'},
     {'image': 'nike2.jpg', 'title': 'Nike Air Zoom', 'subtitle': 'Price: \$150'},
@@ -18,7 +17,6 @@ class HomePage extends StatelessWidget {
     {'image': 'nike10.jpg', 'title': 'Nike Legend', 'subtitle': 'Price: \$170'},
   ];
 
-  // Function to build a collection of cards
   List<Card> _buildGridCards(BuildContext context) {
     return products.map((product) {
       return Card(
@@ -26,7 +24,6 @@ class HomePage extends StatelessWidget {
         elevation: 4.0,
         child: GestureDetector(
           onTap: () {
-            // Navigate to ProductDetailPage with the selected product
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -70,10 +67,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.menu, semanticLabel: 'menu'),
-          onPressed: () {
-            // Handle menu button click
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: const Icon(Icons.menu, semanticLabel: 'menu'),
+              onPressed: () {
+                Scaffold.of(context).openDrawer(); // Opens the drawer
+              },
+            );
           },
         ),
         actions: <Widget>[
@@ -91,6 +92,50 @@ class HomePage extends StatelessWidget {
           ),
         ],
         title: const Text('Shoehub'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              child: const Text(
+                'Menu',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context); // Closes the drawer
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
       body: GridView.count(
         crossAxisCount: 2,
