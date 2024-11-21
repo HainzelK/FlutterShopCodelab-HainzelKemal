@@ -85,11 +85,8 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  // PageController for managing PageView
   final PageController _pageController = PageController();
-  
-  // List of onboarding pages with Lottie animation paths
-  final List<Map<String, String>> onboardingData = [
+    final List<Map<String, String>> onboardingData = [
     {
       'title': 'Welcome to ShoeHub',
       'description': 'Explore the best collection of shoes at your fingertips.',

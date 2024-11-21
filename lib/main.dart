@@ -42,15 +42,13 @@ ThemeData _buildHubTheme() {
       secondary: hitam,
       error: error,
     ),
-    textTheme: base.textTheme.apply(
-      fontFamily: 'Poppins',
-    ),
-    // TODO: Add the text themes (103)
-    // TODO: Decorate the inputs (103)
+    textTheme: _buildshoehubtexttheme(base.textTheme),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: kuning,
+      foregroundColor: hitam,
+      ),
   );
 }
-
-// TODO: Build a Shrine Text Theme (103)
 TextTheme _buildshoehubtexttheme(TextTheme base) {
   return base
       .copyWith(
@@ -74,6 +72,7 @@ TextTheme _buildshoehubtexttheme(TextTheme base) {
         displayColor: hitam,
         bodyColor: hitam,
       );
+    
 }
 
 class MyHomePage extends StatefulWidget {
@@ -147,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Image.asset('logo.png'), // Your logo asset
               ),
               Padding(
-                padding: const EdgeInsets.all(30.0), // Adjust the value as needed
+                padding: const EdgeInsets.all(30.0),
                 child: TextField(
                   controller: _usernameController,
                   decoration: const InputDecoration(labelText: 'Username'),
@@ -156,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // [Password]
               Padding(
-                padding: const EdgeInsets.all(30.0), // Adjust the value as needed
+                padding: const EdgeInsets.all(30.0), 
                 child: TextField(
                   controller: _passwordController,
                   decoration: const InputDecoration(labelText: 'Password'),
@@ -183,13 +182,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   _passwordController.clear();
                 },
                 style: TextButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.secondary, // Use foregroundColor instead of primary
+                  foregroundColor: Theme.of(context).colorScheme.secondary, 
                 ),
               ),
 
-              
-              // TODO: Add an elevation to NEXT (103)
-              // TODO: Add a beveled rectangular border to NEXT (103)
+            
             ElevatedButton(
               child: const Text('NEXT'),
               onPressed: () {

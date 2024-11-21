@@ -1,5 +1,5 @@
+import 'package:codelabs101/productdetail.dart';
 import 'package:flutter/material.dart';
-import 'productdetail.dart'; 
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
         elevation: 4.0,
         child: GestureDetector(
           onTap: () {
-            Navigator.push(
+              Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => ProductDetailPage(product: product),
@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
             return IconButton(
               icon: const Icon(Icons.menu, semanticLabel: 'menu'),
               onPressed: () {
-                Scaffold.of(context).openDrawer(); // Opens the drawer
+                Scaffold.of(context).openDrawer(); 
               },
             );
           },
@@ -91,7 +91,16 @@ class HomePage extends StatelessWidget {
             },
           ),
         ],
-        title: const Text('Shoehub'),
+        title: Row(
+          children: [
+            Image.asset(
+              'logo2.jpg', 
+              height: 30.0, 
+            ),
+            const SizedBox(width: 8.0), 
+            const Text('Shoehub'),
+          ],
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -107,29 +116,19 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home),
+              title: const Text('Sneakers'),
+              onTap: () {
+                Navigator.pop(context); 
+              },
+            ),
+            ListTile(
+              title: const Text('Shoes'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
               title: const Text('Home'),
-              onTap: () {
-                Navigator.pop(context); // Closes the drawer
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text('Profile'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -137,11 +136,15 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        padding: const EdgeInsets.all(16.0),
-        childAspectRatio: 8.0 / 9.0,
-        children: _buildGridCards(context),
+      body: Stack(
+        children: <Widget>[
+          GridView.count(
+            crossAxisCount: 2,
+            padding: const EdgeInsets.all(16.0),
+            childAspectRatio: 8.0 / 9.0,
+            children: _buildGridCards(context),
+          ),
+        ],
       ),
     );
   }
